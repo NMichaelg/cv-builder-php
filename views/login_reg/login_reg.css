@@ -1,13 +1,22 @@
 /* Container */
-.container {
+.containerh {
   width: 100%;
   max-width: 400px;
   padding: 20px;
-  background: #fff;
+  background: transparent;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
+.big-container{
+  display: flex;
+  gap: 20px;
+}
+.big-container img{
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 /* Header */
 .header {
   text-align: center;
@@ -72,7 +81,9 @@ button {
 button:hover {
   background: #0056b3;
 }
-
+input{
+  outline: none;
+}
 p {
   font-size: 14px;
   text-align: center;

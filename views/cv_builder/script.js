@@ -158,11 +158,6 @@ const getInputs = ()=>{
       )
     )
 
-    skillYear.forEach((item) =>
-      item.addEventListener("keyup", (e) =>
-        validInput(e.target, "phone", "Year")
-      )
-    )
 
     phone.forEach((item) =>
       item.addEventListener("keyup", (e) =>
@@ -359,7 +354,7 @@ const fetchValues = (attrs, ...nodeLists) => {
     }
     tempDataArr.push(dataObj)
   }
-
+  console.log('Data: ',tempDataArr)
   return tempDataArr
 }
 const displayCV = (userData) => {
@@ -368,10 +363,20 @@ const displayCV = (userData) => {
   emailShow.innerHTML = userData.email
 
   showData(userData.phone, phoneShow)
-  showData(userData.streets,addressShow)
+  showData(
+    userData.address.map(
+      (addr) => `${addr.street}, ${addr.city}, ${addr.country}`
+    ),
+    addressShow
+  )
   showData(userData.projects, projectsShow)
   showData(userData.achievements, achievementsShow)
-  showData(userData.skills, skillsShow)
+  showData(
+    userData.skills.map(
+      (skill) => `${skill.skill} (${skill.skill_year})`
+    ),
+    skillsShow
+  )
   showData(userData.educations, educationsShow)
   showData(userData.experiences, experiencesShow)
 }
@@ -384,6 +389,7 @@ const printCV = () => {
 
 const generateCV = () => {
   let userData = getInputs()
+  console.log(userData)
   displayCV(userData)
   console.log(userData)
 }
@@ -395,7 +401,31 @@ function previewImage() {
     imageShow.src = ofEvent.target.result
   }
 }
+function submit_cv(){
+  const formData = getInputs(); // Fetch form inputs using your function
 
+  fetch('views/cv_builder/process_form.php', {
+  method: 'POST',
+  headers: {
+      'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(formData),
+  })
+  .then((response) => response.json())
+  .then((data) => {
+      if (data.status === 'success') {
+      console.log(data.message);
+      alert('Form submitted successfully!');
+      } else {
+      console.error(data.message);
+      alert('An error occurred: ' + data.message);
+      }
+  })
+  .catch((error) => {
+      console.error('Error:', error);
+      alert(error);
+  });
+}
 
 
 

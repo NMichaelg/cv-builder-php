@@ -1,4 +1,4 @@
-CREATE TABLE user (
+CREATE TABLE user_table (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(200) NOT NULL
@@ -11,7 +11,7 @@ CREATE TABLE user_cv (
     lname VARCHAR(100),
     img VARCHAR(255), 
     email VARCHAR(100),
-    FOREIGN KEY (id) REFERENCES user(id)
+    FOREIGN KEY (id) REFERENCES user_table(id)
 );
 
 CREATE TABLE user_address (
@@ -20,14 +20,14 @@ CREATE TABLE user_address (
     city VARCHAR(100) NOT NULL,
     street VARCHAR(200) NOT NULL,
     PRIMARY KEY(id, country, city, street),
-    FOREIGN KEY (id) REFERENCES user(id)
+    FOREIGN KEY (id) REFERENCES user_table(id)
 );
 
 CREATE TABLE user_phone (
     id INT,
     phone VARCHAR(20) NOT NULL,
     PRIMARY KEY(id, phone),
-    FOREIGN KEY (id) REFERENCES user(id)
+    FOREIGN KEY (id) REFERENCES user_table(id)
 );
 
 CREATE TABLE user_achievement(
@@ -35,7 +35,7 @@ CREATE TABLE user_achievement(
     title varchar(100) not null,
     description varchar(300),
     PRIMARY KEY(id, title),
-    FOREIGN KEY (id) REFERENCES user(id)
+    FOREIGN KEY (id) REFERENCES user_table(id)
 );
 
 CREATE TABLE user_experience(
@@ -47,7 +47,7 @@ CREATE TABLE user_experience(
     end_date date,
     description varchar(300),
     PRIMARY KEY(id, title),
-    FOREIGN KEY (id) REFERENCES user(id)
+    FOREIGN KEY (id) REFERENCES user_table(id)
 );
 
 CREATE TABLE user_education (
@@ -58,7 +58,7 @@ CREATE TABLE user_education (
     specialization VARCHAR(200), 
     description VARCHAR(300),
     PRIMARY KEY(id, school, degree),
-    FOREIGN KEY (id) REFERENCES user(id)
+    FOREIGN KEY (id) REFERENCES user_table(id)
 );
 
 CREATE TABLE user_project(
@@ -67,7 +67,7 @@ CREATE TABLE user_project(
     plink varchar(200),
     description VARCHAR(300),
     PRIMARY KEY(id, pname),
-    FOREIGN KEY (id) REFERENCES user(id)
+    FOREIGN KEY (id) REFERENCES user_table(id)
 );
 
 CREATE TABLE user_skill(
@@ -75,6 +75,6 @@ CREATE TABLE user_skill(
     skill varchar(200) not null,
 	year Year,
     PRIMARY KEY(id, skill),
-    FOREIGN KEY (id) REFERENCES user(id)
+    FOREIGN KEY (id) REFERENCES user_table(id)
 );
 

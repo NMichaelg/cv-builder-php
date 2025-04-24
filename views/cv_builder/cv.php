@@ -302,6 +302,9 @@
                                 <button type = "button" data-repeater-create value = "Add" class = "repeater-add-btn" group="group-e">+</button>
                             </div>
                         </div>
+                        <div class = "container">
+                            <button type = "button" class = "print-btn btn btn-primary" onclick="submit_cv()">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -378,7 +381,6 @@
                             </div>
                             <div class = "experiences-items preview-blk-list" id = "experiences"></div>
                         </div>
-
                         <div class = "preview-blk">
                             <div class = "preview-blk-title">
                                 <h3>projects</h3>
@@ -395,7 +397,7 @@
                 <button type = "button" class = "print-btn btn btn-primary" onclick="printCV()">Print CV</button>
             </div>
         </section>
-    <script src="script.js"></script>
+    <script><?php include "script.js" ?></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
          const geonamesUsername = "xitrumbumbum"; 
