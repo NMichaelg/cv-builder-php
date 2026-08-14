@@ -300,12 +300,3 @@ See the [`LICENSE`](LICENSE) file for license information.
 
 GitHub: [@NMichaelg](https://github.com/NMichaelg)
 
-## Repository
-
-Original repository:
-
-https://github.com/NMichaelg/Web_assignment
-
-Suggested repository name:
-
-**`cv-builder-php`**
